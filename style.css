@@ -1,0 +1,166 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.app {
+  height: 100vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  font-family: "Montserrat", sans-serif;
+}
+
+.time-select,
+.sound-picker {
+  height: 80%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  flex: 1;
+}
+.time-select button,
+.sound-picker button {
+  color: white;
+  width: 30%;
+  height: 10%;
+  background: none;
+  font-size: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 2px solid white;
+  transition: all 0.5s ease;
+}
+
+.sound-picker button {
+  border: none;
+  height: 120px;
+  width: 120px;
+  padding: 30px;
+  border-radius: 50%;
+}
+.sound-picker button:nth-child(1) {
+  background: #4972a1;
+}
+.sound-picker button:nth-child(2) {
+  background: #a14f49;
+}
+.sound-picker button img {
+  height: 100%;
+}
+
+.time-select button:hover {
+  background: white;
+  color: black;
+}
+
+.player-container {
+  position: relative;
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  flex: 1;
+}
+
+.player-container svg {
+  position: absolute;
+  height: 50%;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-90deg);
+  pointer-events: none;
+}
+.player-container svg circle {
+  transition: all 0.2s ease-in-out;
+}
+.time-display {
+  color: white;
+  position: absolute;
+  font-size: 50px;
+  bottom: 10%;
+}
+
+/* Added Height & Object fit property to make the video fully cover the screen */
+video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -10;
+  object-fit: cover;
+} 
+
+
+/* Media Query for Tablet */
+@media screen and (max-width: 768px){
+
+  .time-select button 
+  {
+  width: 60%;
+  margin-right: 70px;
+}
+
+  .player-container svg 
+  {
+    height: 38%;
+  }
+}
+
+/* Media Query for Mobile */
+@media screen and (max-width: 500px)
+ {
+
+  .replay 
+  {
+    margin-top: -100px;
+  }
+
+  /* Making the buttons Stack */
+  .time-select 
+  {
+    margin-top: 170%;
+    justify-content: center;
+  }
+
+  .time-select button 
+  {
+    width: 160%;
+    margin: 15px;
+    margin-left: 210%;
+  }
+
+  .time-display 
+  {
+    font-size: 40px;
+    bottom: 23%;
+  }
+  
+  /* Reduced the Svg Icons to fit the Screen size */
+  .sound-picker button 
+  {
+    height: 80px;
+    width: 80px;
+  }
+
+  /* Positioned the first Icon to the top left corner of the app */
+  .sound-picker button:nth-child(1)
+  {
+    position: absolute;
+    top: 5%;
+    left: 2%;
+  }
+
+  /* Positioned the second Icon to the top right corner of the app */
+  .sound-picker button:nth-child(2)
+   {
+    position: absolute;
+    top: 5%;
+    left: 78%;
+  }
+
+}
